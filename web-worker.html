@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Worker</title>
+  </head>
+  <body>
+    <button type="button" id="process">process data</button>
+    <table id="data-worker">
+      <tbody></tbody>
+    </table>
+
+    <script>
+      const worker = new Worker("worker.js");
+      const process = document.querySelector("#process");
+      const dataWorker = document.querySelector("#data-worker");
+      dataWorker.style.border = "1px solid";
+
+      worker.addEventListener("message", (message) => {
+        // showData(message.data);
+        console.log(message.data);
+      });
+
+      process.addEventListener("click", () => {
+        worker.postMessage(250000);
+      });
+
+      function showData(value) {
+        const tr = document.createElement("tr");
+
+        const tdNo = document.createElement("td");
+        tdNo.innerText = value;
+        tdNo.style.border = "1px solid";
+        tr.append(tdNo);
+
+        const tdValue = document.createElement("td");
+        tdValue.innerText = "value of " + value;
+        tdValue.style.border = "1px solid";
+        tr.append(tdValue);
+
+        dataWorker.querySelector("tbody").append(tr);
+      }
+    </script>
+  </body>
+</html>

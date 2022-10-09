@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Amsterdam</title>
+  </head>
+  <body>
+    <script>
+      const ajax = new XMLHttpRequest();
+      // ajax.open("GET", "https://reqres.in/api/users/1");
+      // ajax.addEventListener("readystatechange", () => {
+      //   console.log("state " + ajax.readyState);
+      // });
+      // ajax.addEventListener("load", () => {
+      //   if (ajax.status === 200) {
+      //     const response = JSON.parse(ajax.responseText);
+      //     document.body.append(response.data.first_name);
+      //   } else {
+      //     document.body.append("error status: " + ajax.status);
+      //   }
+      // });
+      // ajax.send();
+      ajax.open("POST", "https://hookb.in/8PqLwZaRMEtpVYopjeGP");
+      ajax.addEventListener("load", () => {
+        const response = ajax.responseText;
+        document.body.append(response);
+      });
+      ajax.setRequestHeader("Content-Type", "application/json");
+      ajax.send(
+        JSON.stringify({
+          username: "dono",
+          password: "123",
+        })
+      );
+    </script>
+  </body>
+</html>

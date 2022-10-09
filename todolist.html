@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist</title>
+  </head>
+  <body>
+    <form id="todoForm">
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="todo">Todo :</label></td>
+            <td><input type="text" id="todo" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button type="button" id="add">Add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <h1>Todolist</h1>
+
+    <table id="tableTodo">
+      <thead>
+        <tr>
+          <th>Filter</th>
+          <th><input type="text" id="search" /></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      "use strict";
+
+      const todoList = [];
+
+      const todoForm = document.querySelector("#todoForm");
+      const todo = document.querySelector("#todo");
+      const add = document.querySelector("#add");
+      const tableTodo = document.querySelector("#tableTodo tbody");
+      const search = document.querySelector("#search");
+
+      add.addEventListener("click", () => {
+        todoList.push(todo.value);
+        todoForm.reset();
+
+        displayTodolist(todoList);
+      });
+
+      search.addEventListener("keyup", (event) => {
+        const result = todoList.filter((value) =>
+          value.includes(event.target.value)
+        );
+        displayTodolist(result);
+      });
+
+      tableTodo.addEventListener("click", (event) => {
+        if (event.target.matches("button")) {
+          const idx = event.target.dataset.idx;
+          todoList.splice(idx, 1);
+          displayTodolist(todoList);
+        }
+      });
+
+      function displayTodolist(arrayTodo) {
+        tableTodo.innerHTML = "";
+
+        arrayTodo.forEach((value, index) => {
+          const tr = document.createElement("tr");
+
+          const tdRemove = document.createElement("td");
+          tdRemove.innerHTML = `<button type="button" class="done" data-idx=${index}>Done</button>`;
+          tr.appendChild(tdRemove);
+
+          const tdContent = document.createElement("td");
+          tdContent.textContent = value;
+          tr.appendChild(tdContent);
+
+          tableTodo.appendChild(tr);
+        });
+      }
+    </script>
+  </body>
+</html>
