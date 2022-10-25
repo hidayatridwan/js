@@ -26,87 +26,87 @@
       const data = [
         {
           key: "xxx",
-          value: 1,
+          value: "value 1",
         },
         {
           key: "xxx",
-          value: 2,
+          value: "value 2",
         },
         {
           key: "xxx",
-          value: 3,
+          value: "value 3",
         },
         {
           key: "xxx",
-          value: 4,
+          value: "value 4",
         },
         {
           key: "xxx",
-          value: 5,
+          value: "value 5",
         },
         {
           key: "xxx",
-          value: 6,
+          value: "value 6",
         },
         {
           key: "xxx",
-          value: 7,
+          value: "value 7",
         },
         {
           key: "xxx",
-          value: 8,
+          value: "value 8",
         },
         {
           key: "xxx",
-          value: 9,
+          value: "value 9",
         },
         {
           key: "xxx",
-          value: 10,
+          value: "value 10",
         },
         {
           key: "xxx",
-          value: 11,
+          value: "value 11",
         },
         {
           key: "xxx",
-          value: 12,
+          value: "value 12",
         },
         {
           key: "yyy",
-          value: 1,
+          value: "value 1",
         },
         {
           key: "yyy",
-          value: 2,
+          value: "value 2",
         },
         {
           key: "yyy",
-          value: 3,
+          value: "value 3",
         },
         {
           key: "yyy",
-          value: 4,
+          value: "value 4",
         },
         {
           key: "yyy",
-          value: 5,
+          value: "value 5",
         },
         {
           key: "yyy",
-          value: 6,
+          value: "value 6",
         },
         {
           key: "zzz",
-          value: 1,
+          value: "value 1",
         },
         {
           key: "zzz",
-          value: 2,
+          value: "value 2",
         },
         {
           key: "zzz",
-          value: 3,
+          value: "value 3",
         },
       ];
 
@@ -115,6 +115,7 @@
       let content = ``;
       let arrayValue = [];
       let key = ``;
+      let valueContent = ``;
       data.forEach((val, idx) => {
         no++;
         if (key === val.key) {
@@ -139,30 +140,28 @@
       function fetchValue(arrayValue = []) {
         // fetch limit
         let noContent = 0;
-        let valueContent = ``;
         arrayValue.forEach((_val) => {
           noContent++;
-          valueContent += _val.value + ",";
+          valueContent += `<li>${noContent}. ${_val.value}</li>`;
           if (noContent % 5 == 0) {
-            content += appendContent(_val.key, valueContent);
-            valueContent = ``;
+            content += appendContent(_val.key, `<ul>${valueContent}</ul>`);
           }
         });
         // fetch sisa limit
         let lastArrayValue = arrayValue.slice(-arrayValue.length % 5);
-        noContent = 0;
+        noContent -= arrayValue.length % 5;
         valueContent = ``;
         lastArrayValue.forEach((_val, idx) => {
           noContent++;
-          valueContent += _val.value + ",";
+          valueContent += `<li>${noContent}. ${_val.value}</li>`;
           if (idx == lastArrayValue.length - 1) {
-            content += appendContent(_val.key, valueContent);
-            valueContent = ``;
+            content += appendContent(_val.key, `<ul>${valueContent}</ul>`);
           }
         });
       }
 
       function appendContent(title, contentHTML) {
+        valueContent = ``;
         return `<div class="grid-item"><h4>${title}</h4>${contentHTML}</div>`;
       }
 
