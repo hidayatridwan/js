@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        background-color: #2196f3;
+        padding: 10px;
+      }
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Grid Elements</h1>
+
+    <div class="grid-container"></div>
+
+    <script>
+      const data = [
+        {
+          key: "xxx",
+          value: 1,
+        },
+        {
+          key: "xxx",
+          value: 2,
+        },
+        {
+          key: "xxx",
+          value: 3,
+        },
+        {
+          key: "xxx",
+          value: 4,
+        },
+        {
+          key: "xxx",
+          value: 5,
+        },
+        {
+          key: "xxx",
+          value: 6,
+        },
+        {
+          key: "xxx",
+          value: 7,
+        },
+        {
+          key: "xxx",
+          value: 8,
+        },
+        {
+          key: "xxx",
+          value: 9,
+        },
+        {
+          key: "xxx",
+          value: 10,
+        },
+        {
+          key: "xxx",
+          value: 11,
+        },
+        {
+          key: "xxx",
+          value: 12,
+        },
+        {
+          key: "yyy",
+          value: 1,
+        },
+        {
+          key: "yyy",
+          value: 2,
+        },
+        {
+          key: "yyy",
+          value: 3,
+        },
+        {
+          key: "yyy",
+          value: 4,
+        },
+        {
+          key: "yyy",
+          value: 5,
+        },
+        {
+          key: "yyy",
+          value: 6,
+        },
+        {
+          key: "zzz",
+          value: 1,
+        },
+        {
+          key: "zzz",
+          value: 2,
+        },
+        {
+          key: "zzz",
+          value: 3,
+        },
+      ];
+
+      const gridContainer = document.querySelector(".grid-container");
+      let no = 0;
+      let content = ``;
+      let arrayValue = [];
+      let key = ``;
+      data.forEach((val, idx) => {
+        no++;
+        if (key === val.key) {
+          arrayValue.push(val);
+
+          if (idx == data.length - 1) {
+            fetchValue(arrayValue);
+          }
+        } else {
+          if (arrayValue.length > 0) {
+            fetchValue(arrayValue);
+          }
+          if (idx !== 0) {
+            no = 1;
+            arrayValue = [];
+          }
+          arrayValue.push(val);
+        }
+        key = val.key;
+      });
+
+      function fetchValue(arrayValue = []) {
+        // fetch limit
+        let noContent = 0;
+        let valueContent = ``;
+        arrayValue.forEach((_val) => {
+          noContent++;
+          valueContent += _val.value + ",";
+          if (noContent % 5 == 0) {
+            content += appendContent(_val.key, valueContent);
+            valueContent = ``;
+          }
+        });
+        // fetch sisa limit
+        let lastArrayValue = arrayValue.slice(-arrayValue.length % 5);
+        noContent = 0;
+        valueContent = ``;
+        lastArrayValue.forEach((_val, idx) => {
+          noContent++;
+          valueContent += _val.value + ",";
+          if (idx == lastArrayValue.length - 1) {
+            content += appendContent(_val.key, valueContent);
+            valueContent = ``;
+          }
+        });
+      }
+
+      function appendContent(title, contentHTML) {
+        return `<div class="grid-item"><h4>${title}</h4>${contentHTML}</div>`;
+      }
+
+      gridContainer.innerHTML += content;
+    </script>
+  </body>
+</html>
