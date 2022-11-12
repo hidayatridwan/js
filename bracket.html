@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bracket Tournament</title>
+    <style>
+      body {
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+      }
+      .item {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .item-parent {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-left: 50px;
+      }
+
+      .item-childrens {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .item-child {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .item-parent:after {
+        position: absolute;
+        content: "";
+        width: 25px;
+        height: 2px;
+        left: 0;
+        top: 50%;
+        background-color: #000;
+        transform: translateX(-100%);
+      }
+
+      .item-child:before {
+        content: "";
+        position: absolute;
+        background-color: #000;
+        right: 0;
+        top: 50%;
+        transform: translateX(100%);
+        width: 25px;
+        height: 2px;
+      }
+
+      .item-child:after {
+        content: "";
+        position: absolute;
+        background-color: #000;
+        right: -25px;
+        height: calc(50% + 22px);
+        width: 2px;
+        top: 50%;
+      }
+
+      .item-child:last-child:after {
+        transform: translateY(-100%);
+      }
+
+      .wrap-profile {
+        border-left: 1px solid red;
+        border-top: 1px solid red;
+        border-bottom: 1px solid red;
+        width: 150px;
+        display: block;
+      }
+      .point {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <div class="item-parent">
+        <div class="wrap-profile">
+          <span class="flag">IDN</span>
+          <span class="name">dono11</span>
+        </div>
+        <span class="point">5</span>
+      </div>
+      <div class="item-childrens">
+        <div class="item-child" style="margin-bottom: 0; margin-top: 0">
+          <div class="item">
+            <div class="item-parent">
+              <div class="wrap-profile">
+                <span class="flag">IDN</span>
+                <span class="name">dono21</span>
+              </div>
+              <span class="point">5</span>
+            </div>
+            <div class="item-childrens">
+              <div class="item-child" style="margin-bottom: 0; margin-top: 0">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono31</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div
+                      class="item-child"
+                      style="margin-bottom: 0; margin-top: 0"
+                    >
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono41</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child" style="margin-top: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono501</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono502</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="item-child"
+                      style="margin-top: 0; margin-bottom: 0"
+                    >
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono42</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono503</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono504</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-child" style="margin-top: 0">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono32</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child" style="margin-top: 0">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono43</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono505</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono506</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="item-child"
+                      style="margin-top: 0; margin-bottom: 0"
+                    >
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono44</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child" style="margin-top: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono507</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono508</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-child" style="margin-top: 0">
+          <div class="item">
+            <div class="item-parent">
+              <div class="wrap-profile">
+                <span class="flag">IDN</span>
+                <span class="name">dono22</span>
+              </div>
+              <span class="point">5</span>
+            </div>
+            <div class="item-childrens">
+              <div class="item-child" style="margin-top: 0">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono33</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child" style="margin-top: 0">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono45</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child" style="margin-top: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono509</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono510</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="item-child"
+                      style="margin-top: 0; margin-bottom: 0"
+                    >
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono46</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child" style="margin-top: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono511</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child" style="margin-bottom: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono512</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-child" style="margin-top: 0; margin-bottom: 0">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono34</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono47</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child" style="margin-top: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono513</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono514</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="item-child"
+                      style="margin-top: 0; margin-bottom: 0"
+                    >
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono48</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child" style="margin-top: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono515</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child" style="margin-bottom: 0">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono516</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- <body>
+    <div class="item">
+      <div class="item-parent">
+        <div class="wrap-profile">
+          <span class="flag">IDN</span>
+          <span class="name">dono11</span>
+        </div>
+        <span class="point">5</span>
+      </div>
+      <div class="item-childrens">
+        <div class="item-child">
+          <div class="item">
+            <div class="item-parent">
+              <div class="wrap-profile">
+                <span class="flag">IDN</span>
+                <span class="name">dono21</span>
+              </div>
+              <span class="point">5</span>
+            </div>
+            <div class="item-childrens">
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono31</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono41</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono42</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono32</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono43</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono44</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-child">
+          <div class="item">
+            <div class="item-parent">
+              <div class="wrap-profile">
+                <span class="flag">IDN</span>
+                <span class="name">dono22</span>
+              </div>
+              <span class="point">5</span>
+            </div>
+            <div class="item-childrens">
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono33</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono45</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono46</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <div class="wrap-profile">
+                      <span class="flag">IDN</span>
+                      <span class="name">dono34</span>
+                    </div>
+                    <span class="point">5</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono47</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-child">
+                      <div class="item">
+                        <div class="item-parent">
+                          <div class="wrap-profile">
+                            <span class="flag">IDN</span>
+                            <span class="name">dono48</span>
+                          </div>
+                          <span class="point">5</span>
+                        </div>
+                        <div class="item-childrens">
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                          <div class="item-child">
+                            <div class="wrap-profile">
+                              <span class="flag">IDN</span>
+                              <span class="name">dono</span>
+                            </div>
+                            <span class="point">5</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body> -->
+</html>

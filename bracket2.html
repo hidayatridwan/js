@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bracket Tournament</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .item {
+        /* border: 5px solid blue; */
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+      .item-parent {
+        /* border: 5px solid red; */
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+      }
+
+      .item-childrens {
+        /* border: 5px solid green; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .item-child {
+        /* border: 5px solid yellow; */
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        position: relative;
+      }
+
+      .item-child:first-child {
+        margin-bottom: 10px;
+      }
+
+      .item-child:last-child {
+        margin-top: 10px;
+      }
+
+      /* .item-parent::after {
+        position: absolute;
+        content: "";
+        width: 17px;
+        height: 3px;
+        background-color: #000;
+        transform: translateX(-100%);
+      }
+
+      .item-child::after {
+        content: "";
+        position: absolute;
+        background-color: #000;
+        right: -13px;
+      }
+
+      .item-child:first-child:after {
+        height: calc(50% + 12px);
+        width: 3px;
+        top: 20px;
+      }
+
+      .item-child:last-child:after {
+        height: calc(50% + 12px);
+        width: 3px;
+        top: 0;
+        transform: translateY(-100%);
+      } */
+
+      .item-parent:after {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 2px;
+        left: 0;
+        top: 50%;
+        background-color: #000;
+        transform: translateX(-100%);
+      }
+
+      .item-child:after {
+        content: "";
+        position: absolute;
+        background-color: #000;
+        right: -5px;
+        height: calc(50% + 22px);
+        width: 2px;
+        top: 50%;
+      }
+
+      .item-child:last-child:after {
+        transform: translateY(-100%);
+      }
+
+      .name {
+        border: 1px dashed orange;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="card-template">
+      <div class="item">
+        <div class="item-parent">
+          <span class="name">DONO 1</span>
+        </div>
+        <div class="item-childrens">
+          <div class="item-child"></div>
+          <div class="item-child"></div>
+        </div>
+      </div>
+    </template>
+    <!-- <div class="item">
+      <div class="item-parent">
+        <span class="name">DONO 1</span>
+      </div>
+      <div class="item-childrens">
+        <div class="item-child">
+          <div class="item">
+            <div class="item-parent">
+              <span class="name">KASINO 2.1</span>
+            </div>
+            <div class="item-childrens">
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <span class="name">INDRO 3.1</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <span class="name">INDRO 4.1</span>
+                    </div>
+                    <div class="item-child">
+                      <span class="name">INDRO 4.2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <span class="name">INDRO 3.2</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <span class="name">INDRO 4.3</span>
+                    </div>
+                    <div class="item-child">
+                      <span class="name">INDRO 4.4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-child">
+          <div class="item">
+            <div class="item-parent">
+              <span class="name">KASINO 2.2</span>
+            </div>
+            <div class="item-childrens">
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <span class="name">INDRO 3.3</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <span class="name">INDRO 4.5</span>
+                    </div>
+                    <div class="item-child">
+                      <span class="name">INDRO 4.6</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-child">
+                <div class="item">
+                  <div class="item-parent">
+                    <span class="name">INDRO 3.4</span>
+                  </div>
+                  <div class="item-childrens">
+                    <div class="item-child">
+                      <span class="name">INDRO 4.7</span>
+                    </div>
+                    <div class="item-child">
+                      <span class="name">INDRO 4.8</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>
